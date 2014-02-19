@@ -1,0 +1,25 @@
+<% var activemenu = 'shop'; %>
+<% include head_shop.html %>
+<% include header.html %>
+
+<section class="slice bg-3">
+    <div class="w-section inverse">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h3 class="section-title">Order Complete!</h3>
+                    <p>
+                        You have bought via PayPal!
+                    </p>
+
+                    <p>Click the continue button to clear your cart and continue browsing.</p>
+                    <button class="btn btn-primary" ng-click="$emit('cart:complete');">Continue</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<% include footer.html %>

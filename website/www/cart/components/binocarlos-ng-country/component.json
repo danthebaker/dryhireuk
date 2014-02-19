@@ -1,0 +1,11 @@
+{
+  "name": "ng-country",
+  "description": "Angular factory with a list of countries",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {},
+  "repo": "https://raw.github.com/binocarlos/ng-country"
+}

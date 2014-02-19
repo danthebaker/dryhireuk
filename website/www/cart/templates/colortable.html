@@ -1,0 +1,19 @@
+<table class="sizetable table table-bordered table-responsive">
+<thead>
+  <tr class="wp-theme-3 bg-1">
+    <th>Color</th>
+  </tr>
+</thead>
+<tbody>
+<tr ng-repeat="color in colors" style="cursor:hand;" ng-class="{selected:isselected(color)}" ng-click="choosetablecolor(color);">
+  <td class="info">
+    <strong>
+      <i class="fa" ng-class="{'fa-square-o':!color.selected,'fa-check-square-o':color.selected}"></i>
+      {{ color.name }}
+      <div class="color-swatch" ng-style="{'background-color':color.color}"></div>
+    </strong>
+  </td>
+</tr>
+</tbody>
+
+</table>

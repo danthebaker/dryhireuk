@@ -1,0 +1,15 @@
+<% if(settings.force_ssl){ %>
+<script>
+
+	if (window.location.protocol != "https:"){
+
+      var url = window.location.href.substring(window.location.protocol.length+2).replace(/:\d+/, '')
+
+      if(!url.match(/^www\./)){
+          url = 'www.' + url;
+      }
+      window.location.href = "https:" + url;
+  }
+
+</script>
+<% } %>

@@ -1,0 +1,11 @@
+{
+  "name": "ng-safe",
+  "description": "angular $scope safe apply as a component",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {},
+  "repo": "https://raw.github.com/binocarlos/ng-safe"
+}

@@ -1,0 +1,66 @@
+
+<body ng-app="funkybods-shop" ng-controller="AppCtrl" class="wp-theme-3">
+  	<div class="wrapper">
+	    <div class="top-header">
+	      <div class="container">
+	        <div class="row">
+	          <div class="col-sm-12"><span style="float:left;" class="aux-text hidden-xs">The revolutionary new muscle top for men</span>
+	            <nav class="top-header-menu">
+	              <ul class="menu">
+	                <cart-dropdown cart="cart"></cart-dropdown>
+	              </ul>
+	            </nav>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+  
+	  <Header>
+	    <div class="navbar navbar-white" role="navigation">
+	        <div class="container">
+	            <div class="navbar-header">
+	            	
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="index.html">
+	                	<img src="images/funkybod_logo.png" alt="Funkybod"  title="Funkybod">
+	                </a>
+	            </div>
+	            <div class="navbar-collapse collapse">
+	                <ul class="nav navbar-nav navbar-right">
+	                	<li class="<%- activemenu=='home' ? 'active' : '' %>">
+	                    	<a href="/" >Home</a>
+	                	</li>
+                    <li class="<%- activemenu=='shop' ? 'active' : '' %>">
+	                    	<a href="shop" >Shop</a>
+	                        
+	                	</li>
+	                	<li class="dropdown<%- activemenu=='media' ? ' active' : '' %>">
+	                    	<a href="media" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">Media</a>
+	                        <ul class="dropdown-menu">
+	                        	<li><a href="media">Media Home</a></li>
+	                            <li><a href="media_articles">Media Articles</a></li>
+	                            <li><a href="media_videos">Media Videos</a></li>
+	                            <li><a href="media_social">Social Media</a></li>
+	                            
+	                        </ul>
+	                	</li>
+                    <li class="<%- activemenu=='faqs' ? 'active' : '' %>">
+	                    	<a href="faqs">FAQs</a>
+	                        
+	                	</li>
+                    <li class="<%- activemenu=='contact' ? 'active' : '' %>">
+	                    	<a href="contact" >Contact</a>
+	                        
+	                	</li>
+	                    
+	                 
+	                </ul>
+	            </div><!--/.nav-collapse -->
+	        </div>
+	    </div>
+	  </Header>

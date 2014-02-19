@@ -1,0 +1,101 @@
+<% var activemenu = 'shop'; %>
+<% include head_checkout.html %>
+<% include header.html %>
+	 
+
+<div class="pg-opt pin">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Order Successful</h2>
+            </div>
+            <div class="col-md-6">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Checkout</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section id="cartbody" class="slice bg-3" style="display:none;">
+    <div class="w-section inverse shop">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-cart table-responsive" ng-cloak>
+                        <tbody>
+                            <tr>
+                                
+                                <th></th>
+                                <th>Product name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                            </tr>
+                        
+                            <tr ng-repeat="item in cart.items">
+                                <td><img ng-src="{{ item.image }}" class="img-center" alt=""></td>
+                                <td><a href="">{{ item.name }}</a></td>
+                                <td>{{ item.price | currency:"£" }}</td>
+                                <td>{{ item.qty }}</td>
+                                <td>{{ item.price * item.qty | currency:"£" }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row bg-5">
+              		
+                <div class="col-md-4 panel">
+                	  
+                    <div class="subsection">
+                        <h3 class="section-title">Cart totals</h3>
+                        <table class="table-totals table-responsive">
+                            <tbody>
+                                <tr>
+                                    <td><h5>Cart subtotal</h5></td>
+                                    <td><h4>{{ cart.getTotal() | currency:"£" }}</h4></td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Shipping</h5></td>
+                                    <td><h4>
+                                      {{ cart.getExtraTotal() | currency:"£" }}
+                                    </h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><h5>Total</h5></td>
+                                    <td><strong><h4>{{ cart.getTotal(true) | currency:"£" }}</h4></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                </div>
+                <div class="col-md-8 ">
+                	<div class="subsection">
+                      <h3 class="section-title">Order Successful</h3>
+                      <p>You will receive an email confirming shortly to confirm your order.  Please check your spam folder if you cannot find the email.  </p>
+                      <p>Click the continue button to clear your cart and continue browsing.</p>
+                    	<button class="btn btn-primary" ng-click="$emit('cart:complete');">Continue</button>
+                  </div>
+                </div>
+                 
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<% include footer.html %>
+<script>
+ $(function(){
+ 		$('#cartbody').show();
+ })
+</script>
