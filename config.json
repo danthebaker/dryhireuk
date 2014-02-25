@@ -1,0 +1,61 @@
+{
+	"shopdata":{
+		"dehumidifers":[{
+			"name":"CD35P",
+			"image":"/img/products/cd35.jpg",
+			"company":"Ebac Industrial Products",
+			"capacity":"35 litres per day",
+			"description":"commercial cellar dryer",
+			"group":"silver",
+			"price":95
+		},{
+			"name":"BD70",
+			"image":"/img/products/bd70.jpg",
+			"company":"Ebac Industrial Products",
+			"capacity":"25 litres per day",
+			"description":"extraction commercial portable dehumidifier",
+			"group":"silver",
+			"price":95
+		},{
+			"name":"SDH50",
+			"image":"/img/products/sdh50.jpg",
+			"company":"Sealey",
+			"capacity":"50 litres per day",
+			"description":"Compressor dehumidifier",
+			"group":"silver",
+			"price":95
+		},{
+			"name":"EH1384 50",
+			"image":"/img/products/eh1384.jpg",
+			"company":"Prem-I-Air",
+			"capacity":"50 litres per day",
+			"description":"Commercial dehumidifer with five litre tank",
+			"group":"silver",
+			"price":95
+		},{
+			"name":"CR70",
+			"company":"Broughton",
+			"image":"/img/products/cr70.jpg",
+			"capacity":"70 litres per day",
+			"description":"commercial portable defumidifer",
+			"group":"gold",
+			"price":145
+		},{
+			"name":"Kompact",
+			"image":"/img/products/kompact.jpg",
+			"company":"Ebac Industrial Products",
+			"capacity":"55 litres per day",
+			"description":"commercial defumidifer",
+			"group":"gold",
+			"price":145
+		},{
+			"name":"RM85",
+			"image":"/img/products/rm85.jpg",
+			"company":"Ebac Industrial Products",
+			"capacity":"",
+			"description":"230v Flood Drying Dehumidifer",
+			"group":"gold",
+			"price":145
+		}]
+	}
+}

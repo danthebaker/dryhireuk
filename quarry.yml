@@ -3,7 +3,8 @@ website:
   dockerfile: |
     FROM quarry/monnode
     ADD . /srv/app
-    RUN cd /srv/app/website && npm install
+    RUN cd /srv/app && make install
+    RUN cd /srv/app && make build
     WORKDIR /srv/app
     ENTRYPOINT NODE_ENV=production mon "node ./website/index.js --port 80"
   domains:

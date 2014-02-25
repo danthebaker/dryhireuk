@@ -4,12 +4,8 @@
   "description": "website node for dryhireuk.com",
   "main": "index.js",
   "dependencies": {
-    "express": "*",
-    "ecstatic": "~0.4.13",
-    "async": "~0.2.9",
-    "jade": "~1.1.4",
-    "optimist": "~0.6.0",
-    "basic-auth-connect": "~1.0.0",
-    "ejs": "~0.8.5"
+    "express": "~3.4.8",
+    "optimist": "~0.6.1",
+    "html-include": "0.0.1"
   }
 }
