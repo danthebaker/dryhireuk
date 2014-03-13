@@ -8,6 +8,9 @@
     "index.js"
   ],
   "dependencies": {
-    "binocarlos/ng-toptrump": "*"
+    "binocarlos/ng-toptrump": "*",
+    "binocarlos/ng-ravens": "*",
+    "binocarlos/ng-cornershop": "*",
+    "binocarlos/ng-map": "*"
   }
 }

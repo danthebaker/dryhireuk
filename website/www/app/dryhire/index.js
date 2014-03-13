@@ -2,7 +2,10 @@ var modulename = module.exports = 'dryhire';
 
 angular
   .module(modulename, [
-  	require('ng-toptrump')
+  	require('ng-toptrump'),
+    require('ng-ravens'),
+    require('ng-map'),
+    require('ng-cornershop')
   ])
 
   // the data baked into the page from the server
@@ -15,8 +18,38 @@ angular
     return $data ? ($data.shopdata || {}) : {}
   })
 
-  .controller('HireCtrl', function($scope, $shopdata, $location, $rootScope){
+  .factory('$settings', function($data){
+    return $data ? ($data.settings || {}) : {}
+  })
+
+  .controller('BaseCtrl', function($scope, $cornershop, $shopdata, $settings, $location, $rootScope){
     $scope.shopdata = $shopdata;
+    $scope.cart = $cornershop('dryhire', true);
+  })
+
+  .factory('$growl', function(){
+    return function(message, type){
+      type = type || 'info';
+      //window.scrollTo(0,0);
+
+      var appendto = $('.add-growl');
+
+      var elemselector = appendto.length>0 ? appendto : 'body';
+      $.bootstrapGrowl(message, {
+        ele: elemselector, // which element to append to
+        type: type, // (null, 'info', 'error', 'success')
+        offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
+        align: 'right', // ('left', 'right', or 'center')
+        width: 250, // (integer, or 'auto')
+        delay: 4000,
+        allow_dismiss: true,
+        stackup_spacing: 10 // spacing between consecutively stacked growls.
+      });
+    }
+  })
+
+  .controller('HireCtrl', function($scope, $shopdata, $settings, $location, $rootScope){
+    
     $scope.toptrump_fields = [{
       title:'Brand',
       value:'company'
@@ -61,4 +94,10 @@ angular
         }
       }
     })
+  })
+
+  .controller('ContactCtrl', function($scope, $settings, $window){
+    $scope.settings = $settings;
+    $scope.map = $settings.business.map;
+
   })

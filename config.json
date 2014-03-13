@@ -1,4 +1,19 @@
 {
+	"admin_emails":[
+		"kaiyadavenport@gmail.com",
+		"kris@dryhireuk.com",
+		"kev@dryhireuk.com"
+	],
+	"admin_email":"sales@dryhireuk.com",
+	"business":{
+		"map":{
+			"title":"Dry Hire UK",
+			"description":"Dehumidifer Hire Specialists",
+			"lat":51.471356,
+			"long":-2.5261229,
+			"zoom":10
+		}
+	},
 	"shopdata":{
 		"dehumidifers":[{
 			"name":"CD35P",

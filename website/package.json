@@ -6,6 +6,13 @@
   "dependencies": {
     "express": "~3.4.8",
     "optimist": "~0.6.1",
-    "html-include": "0.0.1"
+    "html-include": "0.0.1",
+    "digger-app": "~1.0.0",
+    "digger-mongo": "0.0.23",
+    "textmail": "~0.1.0",
+    "async": "~0.2.10",
+    "digger-html-parser": "~0.1.1",
+    "digger-client": "~2.1.0",
+    "digger-bridge": "~1.1.3"
   }
 }
