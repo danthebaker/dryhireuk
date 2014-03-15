@@ -98,3 +98,45 @@ angular
 
   })
 
+  .directive('resourceSummary', function($safeApply){
+
+    //field.required && showvalidate && containerForm[field.name].$invalid
+    return {
+      restrict:'EA',
+      scope:{
+        container:'=',
+        settings:'='
+      },
+      replace:true,
+      transclude:true,
+      templateUrl: "/admin/views/resourcesummary.html",
+      controller:function($scope){
+        
+      },
+      link:function($scope, $elem, $attrs){
+        
+      }
+    }
+  })
+
+  .directive('resourceIcon', function($safeApply){
+
+    //field.required && showvalidate && containerForm[field.name].$invalid
+    return {
+      restrict:'EA',
+      scope:{
+        container:'=',
+        settings:'='
+      },
+      replace:true,
+      transclude:true,
+      templateUrl: "/admin/views/resourceicon.html",
+      controller:function($scope){
+        
+      },
+      link:function($scope, $elem, $attrs){
+        
+      }
+    }
+  })
+
