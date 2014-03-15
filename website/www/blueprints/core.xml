@@ -1,0 +1,7 @@
+<folder>
+
+	<blueprint name="folder">
+    <field name="name" />
+  </blueprint>
+
+</folder>

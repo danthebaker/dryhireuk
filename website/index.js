@@ -12,7 +12,9 @@ var settings = {
 	stripe_publish_key:process.env.STRIPE_PUBLISH_KEY,
 	stripe_secret_key:process.env.STRIPE_SECRET_KEY,
 	mailgun_domain:process.env.MAILGUN_DOMAIN,
-	mailgun_key:process.env.MAILGUN_KEY
+	mailgun_key:process.env.MAILGUN_KEY,
+	admin_username:process.env.ADMIN_USERNAME,
+	admin_password:process.env.ADMIN_PASSWORD
 }
 
 Object.keys(settings).forEach(function(prop){

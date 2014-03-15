@@ -6,17 +6,17 @@ install:
 	cd website/www/admin/app/warehouse && component install
 
 warehouse:
-	cd website/www/admin/app/warehouse && component build
+	cd website/www/admin/app/warehouse && component build -c
 
 dryhire:
-	cd website/www/app/dryhire && component build
+	cd website/www/app/dryhire && component build -c
 
 build: digger warehouse dryhire
 
 digger:
 	mkdir -p website/www/admin/app/build
-	browserify -s "diggerfactory" \
-		website/www/admin/app/digger.js > website/www/admin/app/build/digger.js
+	cd website && browserify -s "diggerfactory" \
+		-r digger-app > www/admin/app/build/digger.js
 
 folders:
 	@mkdir -p ./lib/build	

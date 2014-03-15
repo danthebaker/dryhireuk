@@ -10,6 +10,7 @@ var DiggerApp = require('digger-app');
 var DiggerHTML = require('digger-html-parser');
 var Wholesaler = require('wholesaler');
 var Ravens = require('ravens');
+var basicAuth = require('basic-auth-connect');
 
 var Emailer = require('./emailer');
 var Mongo = require('digger-mongo');
@@ -25,13 +26,7 @@ module.exports = function(options){
 	var digger = DiggerApp({
 		router:require('./router')(options),
 		suppliers:{
-			'/website':Mongo({
-				database:options.mongo_database,
-				collection:'website',
-				hostname:options.mongo_host,
-				port:options.mongo_port
-			}),
-			'/cornershop':Mongo({
+			'/wholesaler':Mongo({
 				database:options.mongo_database,
 				provision:'collection',
 				hostname:options.mongo_host,
@@ -39,6 +34,12 @@ module.exports = function(options){
 			})
 		}
 	}).build();
+
+	if(!options.admin_username || !options.admin_password){
+		throw new Error('admin_username and admin_password required');
+	}
+
+	var admin_auth = basicAuth(options.admin_username, options.admin_password);
 
 	var ravens = Ravens({
 		recaptcha_public_key:options.recaptcha_public_key,
@@ -71,10 +72,11 @@ module.exports = function(options){
 	})
 
 	var wholesaler = Wholesaler({
+		users:$digger.connect('/users'),
 		stripe:{
 			publish_key:options.stripe_publish_key,
 			secret_key:options.stripe_secret_key,
-			orders:$digger.connect('/cornershop/orders')
+			orders:$digger.connect('/wholesaler/orders')
 		}
 	})
 
@@ -95,9 +97,15 @@ module.exports = function(options){
 	app.use(express.json());
 	app.use(express.urlencoded());
 
+/*
+	app.use('/admin', admin_auth, function(req, res, next){
+		next();
+	});
+*/
 	app.use('/api/v1', digger.handler);
 	app.post('/ravens', ravens.handler())
 	app.use(html.handler());
+
 
 	return app;
 }

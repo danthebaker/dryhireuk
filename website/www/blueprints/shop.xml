@@ -1,0 +1,10 @@
+<folder>
+
+  <blueprint name="product">
+    <field title="name" name="name" />
+    <tab name="images">
+      <field title="Image" type="file" name="image" />
+    </tab>
+  </blueprint>
+
+</folder>

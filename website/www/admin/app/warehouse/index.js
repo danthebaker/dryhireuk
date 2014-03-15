@@ -24,30 +24,10 @@ angular
 
   })
 
-  .factory('$growl', function(){
-    return function(message, type){
-      type = type || 'info';
-      //window.scrollTo(0,0);
-
-      var appendto = $('.add-growl');
-
-      var elemselector = appendto.length>0 ? appendto : 'body';
-      $.bootstrapGrowl(message, {
-        ele: elemselector, // which element to append to
-        type: type, // (null, 'info', 'error', 'success')
-        offset: {from: 'top', amount: 20}, // 'top', or 'bottom'
-        align: 'right', // ('left', 'right', or 'center')
-        width: 250, // (integer, or 'auto')
-        delay: 4000,
-        allow_dismiss: true,
-        stackup_spacing: 10 // spacing between consecutively stacked growls.
-      });
-    }
-  })
-
   .controller('BaseCtrl', function($scope){
-    console.log('-------------------------------------------');
-    console.log('YO AM HERE');
+    $digger.blueprint.loadstatic([
+      '/blueprints/shop.xml'
+    ])
   })
 
   .controller('DashboardCtrl', function($scope){
@@ -55,8 +35,66 @@ angular
     console.log('DashboardCtrl');
   })
 
-  .controller('ProductsCtrl', function($scope){
-    console.log('-------------------------------------------');
-    console.log('ProductsCtrl');
+  .factory('$iconfn', function(){
+    return function(container){
+      if(!container){
+        return 'fa-folder';
+      }
+      if(container.is('folder')){
+        return 'fa-folder';
+      }
+      else if(container.is('_supplychain')){
+        return 'fa-sitemap';
+      }
+      return 'fa-cog';
+    }
+  })
+
+  .factory('$blueprintfn', function(){
+    return function(container){
+      return [
+        'folder',
+        'product'
+      ]
+    }
+  })
+
+  .controller('ProductsCtrl', function($scope, $iconfn, $blueprintfn){
+    
+    $scope.products = $digger.connect('/wholesaler/products');
+    $scope.products.attr('title', 'Products');
+    $scope.blueprint = $digger.blueprint.get('product');
+
+    $scope.settings = {
+      showchildren:false,
+      showdigger:true,
+      showjson:true,
+      shownav:false,
+      showbuttons:false,
+      showadd:true,
+      blueprintfn:$blueprintfn,
+      iconfn:$iconfn
+    } 
+
+    $scope.$on('crud:tree:loaded', function(){
+
+    })
+
+/*
+    
+    $scope.settings = {
+      folder_mode:true,
+      add_mode:true,
+      foldersaved:function(){
+        console.log('-------------------------------------------');
+        console.log('saved');
+      },
+      blueprint:'product',
+      selector_path:$routeParams.producturl
+      //parent_selector:get_selector(),
+      //selector:get_selector(true)
+    }
+    */
+
   })
 

@@ -6,7 +6,7 @@ body {
 	background: url(../img/rain.jpg) no-repeat center center;
 	background-size: cover;
 	padding: 30px 0 30px 0;
-	border-top:1px solid #999;
+	
 	border-bottom:1px solid #999;
 	/*
 	text-align: center;
@@ -16,12 +16,12 @@ body {
 
 .navbar{
 	min-height: 80px !important;
+	border-bottom:1px solid #999;
 }
 .hirestuff{
 	background: url(../img/sunflowers.jpg) no-repeat center center;
 	background-size: cover;
 	padding: 30px 0 30px 0;
-	border-top:1px solid #999;
 	border-bottom:1px solid #999;
 	/*
 	text-align: center;
