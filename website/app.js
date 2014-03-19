@@ -6,10 +6,13 @@ var express = require('express');
 var fs = require('fs');
 
 var Mongo = require('digger-mongo');
+var Security = require('digger-security-guard');
 var DiggerApp = require('digger-app');
 var DiggerHTML = require('digger-html-parser');
 var Wholesaler = require('wholesaler');
 var Ravens = require('ravens');
+var bfg = require('bfg');
+
 var basicAuth = require('basic-auth-connect');
 
 var Emailer = require('./emailer');
@@ -26,6 +29,18 @@ module.exports = function(options){
 	var digger = DiggerApp({
 		router:require('./router')(options),
 		suppliers:{
+			'/website':Mongo({
+				database:options.mongo_database,
+				collection:'website',
+				hostname:options.mongo_host,
+				port:options.mongo_port
+			}),
+			'/users':Mongo({
+				database:options.mongo_database,
+				collection:'users',
+				hostname:options.mongo_host,
+				port:options.mongo_port
+			}),
 			'/wholesaler':Mongo({
 				database:options.mongo_database,
 				provision:'collection',
@@ -34,6 +49,26 @@ module.exports = function(options){
 			})
 		}
 	}).build();
+
+	var $digger = digger.client;
+	
+	var auth = Security({
+		id: "/auth",
+		warehouse: "/users",
+		paths:{
+			post_login:"/",
+			post_register: "/scripts/post_register"
+		}
+	}, $digger)
+
+	var disk = bfg.rackspace({
+		username:options.rackspace_username,
+		apikey:options.rackspace_apikey,
+		region:options.rackspace_region,
+		container:options.rackspace_container,
+		folder:options.rackspace_folder,
+		cdn:options.rackspace_cdn
+	})
 
 	if(!options.admin_username || !options.admin_password){
 		throw new Error('admin_username and admin_password required');
@@ -46,7 +81,7 @@ module.exports = function(options){
 		recaptcha_private_key:options.recaptcha_private_key
 	})
 
-	var $digger = digger.client;
+	
 
 	var emailer = Emailer(options);
 
@@ -97,13 +132,16 @@ module.exports = function(options){
 	app.use(express.json());
 	app.use(express.urlencoded());
 
-/*
+
 	app.use('/admin', admin_auth, function(req, res, next){
 		next();
 	});
-*/
+
+	app.use(auth);
 	app.use('/api/v1', digger.handler);
-	app.post('/ravens', ravens.handler())
+	app.post('/ravens', ravens.handler());
+	app.use('/filestore', disk.handler(true));
+	
 	app.use(html.handler());
 
 

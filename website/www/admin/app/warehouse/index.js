@@ -21,6 +21,21 @@ angular
         controller:'ProductsCtrl'
       })
 
+      .when('/website', {
+        templateUrl: "/admin/views/website.html",
+        controller:'WebsiteCtrl'
+      })
+
+      .when('/orders', {
+        templateUrl: "/admin/views/orders.html",
+        controller:'OrdersCtrl'
+      })
+
+      .when('/editor', {
+        templateUrl: "/admin/views/editor.html",
+        controller:'EditorCtrl'
+      })
+
 
   })
 
@@ -28,12 +43,12 @@ angular
     $digger.blueprint.loadstatic([
       '/blueprints/shop.xml'
     ])
+
+    $scope.$on('admin:section', function($ev, section){
+      $scope.menulink = section;
+    })
   })
 
-  .controller('DashboardCtrl', function($scope){
-    console.log('-------------------------------------------');
-    console.log('DashboardCtrl');
-  })
 
   .factory('$iconfn', function(){
     return function(container){
@@ -52,18 +67,30 @@ angular
 
   .factory('$blueprintfn', function(){
     return function(container){
-      return [
-        'folder',
-        'product'
-      ]
+
+      if(container.is('folder') || container.is('_supplychain')){
+        return [
+          $digger.blueprint.get('folder'),
+          $digger.blueprint.get('text'),
+          $digger.blueprint.get('image'),
+          $digger.blueprint.get('dehumidifier')
+        ]  
+      }
+      else{
+        return [];
+      }
+      
     }
+  })
+
+  .controller('DashboardCtrl', function($scope){
+    $scope.$emit('admin:section', 'dashboard');
   })
 
   .controller('ProductsCtrl', function($scope, $iconfn, $blueprintfn){
     
     $scope.products = $digger.connect('/wholesaler/products');
     $scope.products.attr('title', 'Products');
-    $scope.blueprint = $digger.blueprint.get('product');
 
     $scope.settings = {
       showchildren:false,
@@ -74,29 +101,64 @@ angular
       showadd:true,
       blueprintfn:$blueprintfn,
       iconfn:$iconfn
-    } 
-
-    $scope.$on('crud:tree:loaded', function(){
-
-    })
-
-/*
-    
-    $scope.settings = {
-      folder_mode:true,
-      add_mode:true,
-      foldersaved:function(){
-        console.log('-------------------------------------------');
-        console.log('saved');
-      },
-      blueprint:'product',
-      selector_path:$routeParams.producturl
-      //parent_selector:get_selector(),
-      //selector:get_selector(true)
     }
-    */
+
+    $scope.$emit('admin:section', 'products');
+  })
+
+
+  .controller('WebsiteCtrl', function($scope, $iconfn, $blueprintfn){
+    
+    //$scope.products = $digger.connect('/wholesaler/products');
+    //$scope.products.attr('title', 'Products');
+
+    $scope.warehouse = $digger.connect('/website');
+    $scope.warehouse.attr('name', 'Website');
+
+    $scope.settings = {
+      showchildren:false,
+      showdigger:true,
+      showjson:true,
+      shownav:false,
+      showbuttons:false,
+      showadd:true,
+      blueprintfn:$blueprintfn,
+      iconfn:$iconfn
+    }
+
+    $scope.$emit('admin:section', 'website');
 
   })
+
+
+  .controller('OrdersCtrl', function($scope, $iconfn, $blueprintfn){
+    
+    $scope.$emit('admin:section', 'orders');
+  })
+
+  .controller('EditorCtrl', function($scope, $iconfn, $blueprintfn){
+    
+    //$scope.products = $digger.connect('/wholesaler/products');
+    //$scope.products.attr('title', 'Products');
+
+    $scope.warehouse = $digger.connect('/wholesaler/products');
+    $scope.warehouse.attr('name', 'Products');
+
+    $scope.settings = {
+      showchildren:true,
+      showdigger:true,
+      showjson:true,
+      shownav:true,
+      showbuttons:true,
+      showadd:true,
+      blueprintfn:$blueprintfn,
+      iconfn:$iconfn
+    }
+
+    $scope.$emit('admin:section', 'editor');
+
+  })
+
 
   .directive('resourceSummary', function($safeApply){
 
@@ -139,4 +201,3 @@ angular
       }
     }
   })
-
