@@ -1,0 +1,13 @@
+{
+  "name": "dryhire-warehouse",
+  "description": "Dryhire admin panel",
+  "version": "0.0.1",
+  "main": "index.js",
+  "styles": [],
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+    "diggerio/digger-admin":"*"
+  }
+}

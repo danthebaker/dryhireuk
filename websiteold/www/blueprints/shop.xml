@@ -1,0 +1,11 @@
+<folder>
+
+  <blueprint name="dehumidifier" class="hire product" icon="fa-bars" leaf="true">
+    <field title="Name" name="name" />
+    <field title="Brand" name="brand" />
+    <field title="Capacity" name="capacity" />
+    <field title="Desc" name="desc" />
+    <field title="Image" type="file" name="image" />
+  </blueprint>
+
+</folder>

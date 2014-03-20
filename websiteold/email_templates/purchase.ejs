@@ -1,0 +1,32 @@
+Your <%= shopname %> order has been recieved:
+
+---------------------------------------------
+
+<%= settings.notes %>
+
+£ <%= Math.round(settings.amount*100)/100 %>
+
+payment provider: <%= settings.provider %>
+payment id: <%= settings.paymentid %>
+customer email: <%= settings.email %>
+
+---------------------------------------------
+
+Your reciept will be emailed to you shortly and your order will be shipped to you soon after.
+
+---------------------------------------------
+
+address line1: <%= settings.address.line1 %>
+address line2: <%= settings.address.line2 %>
+address city: <%= settings.address.city %>
+address state: <%= settings.address.state %>
+address zip: <%= settings.address.zip %>
+address country: <%= settings.address.country %>
+address notes: <%= settings.address.notes %>
+
+---------------------------------------------
+
+Thank you
+Please feel free to contact the <%= shopname %> team for any enquiry
+
+<%= shopurl %>
