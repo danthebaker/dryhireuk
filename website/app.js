@@ -91,9 +91,9 @@ module.exports = function(options){
 		});
 	})
 
-	var html = DiggerHTML({
+	var html = DiggerHTML($digger, {
 		document_root:document_root,
-		warehouse:$digger.connect('/website')
+		warehouse:'/website'
 	})
 
 	html.on('render', function(path, vars, done){

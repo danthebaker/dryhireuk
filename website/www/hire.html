@@ -1,3 +1,7 @@
+---
+gold: /wholesaler/products #gold > dehumidifier
+silver: /wholesaler/products #silver > dehumidifier
+---
 <% include header.html %>
 
 <div ng-controller="HireCtrl">   
@@ -36,6 +40,19 @@
         </div>
 
         <div class="row">
+
+            <% silver.each(function(product){ %>
+                <div class="col-lg-3 col-sm-6" style="cursor:pointer;" ng-click="selecthire(item)">
+                    <toptrump data="item" fields="toptrump_fields" name="name" image="image">
+                        <div style="text-align:center">
+                            <h4><% product.title() %></h4>
+                            <img src="/filestore<%- product.attr('image') %>" height="100" />
+                        </div>
+                    </toptrump>
+                </div>
+
+            <% }) %>
+            <!--
             <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'silver'}" style="cursor:pointer;" ng-click="selecthire(item)">
                 <toptrump data="item" fields="toptrump_fields" name="name" image="image">
                     <div style="text-align:center">
@@ -44,6 +61,7 @@
                     </div>
                 </toptrump>
             </div>
+            -->
 
         </div>
 
@@ -56,6 +74,7 @@
         </div>
 
         <div class="row"> 
+            <!--
             <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'gold'}" style="cursor:pointer;" ng-click="selecthire(item)">
                 <toptrump data="item" fields="toptrump_fields" name="name" image="image">
                     <div style="text-align:center">
@@ -64,6 +83,7 @@
                     </div>
                 </toptrump>
             </div>
+            -->
 
         </div>
     </div>
