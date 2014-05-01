@@ -9,5 +9,8 @@
   ],
   "dependencies": {
     "binocarlos/ng-toptrump": "*"
-  }
+  },
+  "remotes":[
+    "https://raw.githubusercontent.com"
+  ]
 }
