@@ -4,24 +4,31 @@
 
     <div class="hirestuff">
         <div class="container">
+            
             <div class="row">
-                <div class="col-lg-5">
-                    <div class="callnow">
-                        <h2><strong>price match guarantee!</strong></h2>
-                        <div>we guarantee to beat any<br /> like for like quotation</div>
-                    </div>
-                    
 
-                    
+                <div class="callnow col-lg-5 col-lg-push-0 col-md-5 col-md-push-0 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h3><strong>Call Us!</strong></h3>
+                    <div class="bigcallnum visible-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-lg btn-primary" style="font-size:1.2em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="bigcallnum hidden-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-primary" style="font-size:1em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447903801031" class="blacklink">07903 801031</a></strong></div>
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447966487504" class="blacklink">07966 487504</a></strong></div>
+                    <div style="font-size:.8em">
+                        click the numbers above to call directly
+                    </div>
                 </div>
 
-                <div class="col-lg-4"></div>
-                <div class="col-lg-3">
-                    <div class="callnow">
-                        <h3><strong>call us!</strong></h3>
-                        <div class="bigcallnum"><strong class="phone"><a href="tel:+441179095727" class="blacklink">0117 9095727</a></strong></div>
-                        <div class="smallcallnum"><strong class="phone"><a href="tel:+447903801031" class="blacklink">07903 801031</a></strong></div>
-                        <div class="smallcallnum"><strong class="phone"><a href="tel:+447966487504" class="blacklink">07966 487504</a></strong></div>
+                <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h2><strong>All Inclusive</strong></h2>
+                    <ul style="text-align:left;">
+                        <li>Free delivery, setup and collection</li>
+                        <li>No VAT!</li>
+                        <li>Flexible delivery schedule</li>
+                    </ul>
+                    <div style="font-size:.8em">
+                        No hidden extras, prompt friendly service
                     </div>
                 </div>
             </div>
@@ -40,7 +47,10 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h2>silver range: <strong class="phone">&pound;25</strong> per week</h2>
+                <h2>silver range: <strong class="phone">&pound;84</strong> per week then <strong class="phone">&pound;12</strong> per day</h2>
+                <div style="font-size:1em">
+                    based on a minimum 1 week hire - 1 week is 7 days, extra days are &pound;12 per day
+                </div>
             </div>
 
         </div>
@@ -60,7 +70,10 @@
         <div class="row">
 
             <div class="col-lg-12">
-                <h2>gold range: <strong class="phone">&pound;55</strong> per week</h2>
+                <h2>gold range: <strong class="phone">&pound;112</strong> per week then <strong class="phone">&pound;16</strong> per day</h2>
+                <div style="font-size:1em">
+                    based on a minimum 1 week hire - 1 week is 7 days, extra days are &pound;16 per day
+                </div>
             </div>
 
         </div>
@@ -83,7 +96,10 @@
         <div class="row">
 
             <div class="col-lg-12" style="font-size:1.3em;">
-                <h2>{{ selected.name }} <strong class="phone">&pound;{{ selected.price }}</strong> per week</h2>
+                <h2>{{ selected.name }} <strong class="phone">&pound;{{ selected.price }}</strong> per week then <strong class="phone">&pound;{{ selected.dayprice }}</strong> per day</h2>
+                <div style="font-size:1em">
+                    based on a minimum 1 week hire - 1 week is 7 days, extra days are &pound;{{ selected.dayprice }} per day
+                </div>
 
 
 

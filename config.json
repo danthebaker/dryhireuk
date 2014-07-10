@@ -22,7 +22,8 @@
 			"capacity":"35 litres per day",
 			"description":"commercial cellar dryer",
 			"group":"silver",
-			"price":25
+			"price":84,
+			"dayprice":12
 		},{
 			"name":"BD70",
 			"image":"/img/products/bd70.jpg",
@@ -30,7 +31,8 @@
 			"capacity":"25 litres per day",
 			"description":"extraction commercial portable dehumidifier",
 			"group":"silver",
-			"price":25
+			"price":84,
+			"dayprice":12
 		},{
 			"name":"SDH50",
 			"image":"/img/products/sdh50.jpg",
@@ -38,7 +40,8 @@
 			"capacity":"50 litres per day",
 			"description":"Compressor dehumidifier",
 			"group":"silver",
-			"price":25
+			"price":84,
+			"dayprice":12
 		},{
 			"name":"EH1384 50",
 			"image":"/img/products/eh1384.jpg",
@@ -46,7 +49,8 @@
 			"capacity":"50 litres per day",
 			"description":"Commercial dehumidifer with five litre tank",
 			"group":"silver",
-			"price":25
+			"price":84,
+			"dayprice":12
 		},{
 			"name":"CR70",
 			"company":"Broughton",
@@ -54,7 +58,8 @@
 			"capacity":"70 litres per day",
 			"description":"commercial portable defumidifer",
 			"group":"gold",
-			"price":55
+			"price":112,
+			"dayprice":16
 		},{
 			"name":"Kompact",
 			"image":"/img/products/kompact.jpg",
@@ -62,7 +67,8 @@
 			"capacity":"55 litres per day",
 			"description":"commercial defumidifer",
 			"group":"gold",
-			"price":55
+			"price":112,
+			"dayprice":16
 		},{
 			"name":"RM85",
 			"image":"/img/products/rm85.jpg",
@@ -70,7 +76,8 @@
 			"capacity":"",
 			"description":"230v Flood Drying Dehumidifer",
 			"group":"gold",
-			"price":55
+			"price":112,
+			"dayprice":16
 		}]
 	}
 }
