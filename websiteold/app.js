@@ -27,9 +27,7 @@ module.exports = function(options){
 	var config = require('../config.json');
 
 	includes.on('page', function(filepath, vars){
-		if(filepath.match(/^\/hire/)){
-			vars.shopdata = config.shopdata;
-		}
+		vars.shopdata = config.shopdata;
 	})
 
 	includes.setup(app);

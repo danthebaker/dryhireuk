@@ -1,6 +1,132 @@
 <% include header.html %>
 
-        
+<a name="browse"></a>
+
+<div ng-controller="HireCtrl">   
+
+    <div class="hirestuff">
+        <div class="container">
+            
+            <div class="row">
+
+                <div class="callnow col-lg-5 col-lg-push-7 col-md-5 col-md-push-7 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h3><strong>Call Us!</strong></h3>
+                    <div class="bigcallnum visible-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-lg btn-primary" style="font-size:1.2em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="bigcallnum hidden-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-primary" style="font-size:1em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447903801031" class="blacklink">07903 801031</a></strong></div>
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447966487504" class="blacklink">07966 487504</a></strong></div>
+                    <div style="font-size:.8em">
+                        click the numbers above to call directly
+                    </div>
+                </div>
+<!--
+                <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h2><strong>All Inclusive</strong></h2>
+                    <ul style="text-align:left;">
+                        <li>Free delivery, setup and collection</li>
+                        <li>No VAT!</li>
+                        <li>Flexible delivery schedule</li>
+                    </ul>
+                    <div style="font-size:.8em">
+                        No hidden extras, prompt friendly service
+                    </div>
+                </div>
+-->
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div class="hirestuff">
+        <div class="callnow">
+            <h3>call us on: <strong class="phone">07903 801031</strong> or <strong class="phone">07966 487504</strong></h3>
+        </div>
+    </div>-->
+
+    <div class="container" ng-if="!selected">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2>silver range: <strong class="phone">&pound;25</strong> per week<!-- then <strong class="phone">&pound;12</strong> per day--></h2>
+                <div style="font-size:1em">
+                    <p>
+                        Our prices exclude delivery charge.  Bristol area @ &pound;25 each way.  Please call for a competitive rate.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'silver'}" style="cursor:pointer;" ng-click="selecthire(item)">
+                <toptrump data="item" fields="toptrump_fields" name="name" image="image">
+                    <div style="text-align:center">
+                        <h4>{{ item.name }}</h4>
+                        <img ng-src="{{ item.image }}" height="100" />
+                    </div>
+                </toptrump>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2>gold range: <strong class="phone">&pound;55</strong> per week <!--then <strong class="phone">&pound;16</strong> per day--></h2>
+                <div style="font-size:1em">
+                    <p>
+                        Our prices exclude delivery charge.  Bristol area @ &pound;25 each way.  Please call for a competitive rate.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row"> 
+            <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'gold'}" style="cursor:pointer;" ng-click="selecthire(item)">
+                <toptrump data="item" fields="toptrump_fields" name="name" image="image">
+                    <div style="text-align:center">
+                        <h4>{{ item.name }}</h4>
+                        <img ng-src="{{ item.image }}" height="100" />
+                    </div>
+                </toptrump>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" ng-if="selected">
+
+        <div class="row">
+
+            <div class="col-lg-12" style="font-size:1.3em;">
+                <h2>{{ selected.name }} <strong class="phone">&pound;{{ selected.price }}</strong> per week then <strong class="phone">&pound;{{ selected.dayprice }}</strong> per day</h2>
+                <div style="font-size:1em">
+                    based on a minimum 1 week hire - 1 week is 7 days, extra days are &pound;{{ selected.dayprice }} per day
+                </div>
+
+
+
+                <toptrump data="selected" fields="toptrump_fields">
+                    <div style="text-align:center">
+                        <h4>{{ selected.name }}</h4>
+                        <img ng-src="{{ selected.image }}" />
+                    </div>
+                </toptrump>
+
+                <div style="margin-top:10px;">
+                    <a class="btn btn-lg btn-info" href="#/">&laquo; back</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
     <div class="rainimg">
         <div class="container">
 
@@ -12,8 +138,8 @@
                         <div class="callnow col-xs-12">
                             <h2><strong>Unbeatable Rates!</strong></h2>
                             <ul style="text-align:left;">
-                                <li><a href="hire.html">Silver Range</a> - <strong>&pound12 per day</strong></li>
-                                <li><a href="hire.html">Gold Range</a> - <strong>&pound16 per day</strong></li>
+                                <li><a href="hire.html">Silver Range</a> - <strong>&pound25 per week</strong></li>
+                                <li><a href="hire.html">Gold Range</a> - <strong>&pound55 per week</strong></li>
                             </ul>
 
                             <div style="font-size:.8em">
@@ -21,6 +147,7 @@
                             </div>
                         </div>
                     </div>
+                    <!--
                     <div class="row">
                         <div class="callnow col-xs-12">
                             <div class="" style="margin-bottom:5px;margin-top:15px;">
@@ -31,6 +158,7 @@
                             </div>
                         </div>
                     </div>
+                    -->
                 </div>
 
                 <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
@@ -91,9 +219,11 @@
                 <div><i class="fa fa-check"></i> Discounts available for long term hires.</div>
             </div>
             <div class="col-lg-6">
+            <!--
                 <div style="margin:10px;">
-                    <a href="hire.html" class="btn btn-lg btn-primary">Browse Dehumidifiers</a>
+                    <a href="#browse" class="btn btn-lg btn-primary">Browse Dehumidifiers</a>
                 </div>
+            -->
             </div>
         </div>
 
@@ -103,7 +233,7 @@
             <!--
                 <p class="section-paragraph">Our prices exclude delivery charge.  Bristol area @ £25 each way.  Please call for a competitive rate.</p>-->
 
-                <p class="section-paragraph"><a href="hire.html">Browse</a> our current range and then get in touch for an immediate hire.</p>
+                <!--<p class="section-paragraph"><a href="#browse">Browse</a> our current range and then get in touch for an immediate hire.</p>-->
             </div>
         </div>
 
@@ -119,4 +249,14 @@
         </div>
     </div>
 
+</div>
+<script>
+window._data = {
+    shopdata:<%- JSON.stringify(shopdata) %>
+}
+</script>
 <% include footer.html %>
+
+
+
+
