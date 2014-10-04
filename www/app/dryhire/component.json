@@ -1,0 +1,19 @@
+{
+  "name": "dryhire",
+  "description": "Dryhire website",
+  "version": "0.0.1",
+  "main": "index.js",
+  "styles": [],
+  "paths":[
+    "./include"
+  ],
+  "local":[
+    "ng-toptrump"
+  ],
+  "scripts": [
+    "index.js"
+  ],
+  "dependencies": {
+    
+  }
+}

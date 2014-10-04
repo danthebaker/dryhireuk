@@ -1,0 +1,16 @@
+{
+  "name": "ng-toptrump",
+  "description": "Angular directive that renders a top-trump card for an objects data",
+  "version": "0.0.1",
+  "main": "index.js",
+  "styles":[
+    "styles.css"
+  ],
+  "scripts": [
+    "index.js",
+    "template.js"
+  ],
+  "dependencies": {
+    
+  }
+}

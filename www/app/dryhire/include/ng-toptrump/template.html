@@ -1,0 +1,10 @@
+<div class="toptrump-card">
+    <div style="margin:5px;" ng-transclude></div>
+    <table border=0 class="toptrump-table">
+        <tr ng-repeat="field in fields">
+            <td align="left" valign="top" class="toptrump-td"><strong>{{ field.title }}:</strong></td>
+            <td>&nbsp;</td>
+            <td align="left" valign="top" class="toptrump-td">{{ getvalue(field) }}</td>
+        </tr>
+    </table>
+</div>

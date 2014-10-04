@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A UK specialist dehumidifier hire company">
+    <meta name="author" content="DryHire UK">
+    <title>DryHire UK - dehumidifier hire</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/dryhire.css" rel="stylesheet">
+    <link href="app/dryhire/build/build.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    
+</head>
+
+<body ng-app="dryhire">
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/" style="padding-top:10px;width:80%;"><img src="img/logo.png" width="300" class="img-responsive" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+           <ul class="nav navbar-nav">
+                
+            </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+
+<a name="browse"></a>
+
+<div ng-controller="HireCtrl">   
+
+    <div class="hirestuff">
+        <div class="container">
+            
+            <div class="row">
+
+                <div class="callnow col-lg-5 col-lg-push-7 col-md-5 col-md-push-7 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h3><strong>tap to call</strong></h3>
+                    <div class="bigcallnum visible-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-lg btn-primary" style="font-size:1.2em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="bigcallnum hidden-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-primary" style="font-size:1em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447903801031" class="blacklink">07903 801031</a></strong></div>
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447966487504" class="blacklink">07966 487504</a></strong></div>
+                    
+                    <div style="font-size:.8em">
+                        we are based in Bristol
+                    </div>
+                    
+                </div>
+<!--
+                <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h2><strong>All Inclusive</strong></h2>
+                    <ul style="text-align:left;">
+                        <li>Free delivery, setup and collection</li>
+                        <li>No VAT!</li>
+                        <li>Flexible delivery schedule</li>
+                    </ul>
+                    <div style="font-size:.8em">
+                        No hidden extras, prompt friendly service
+                    </div>
+                </div>
+-->
+            </div>
+        </div>
+    </div>
+
+    <!--
+    <div class="hirestuff">
+        <div class="callnow">
+            <h3>call us on: <strong class="phone">07903 801031</strong> or <strong class="phone">07966 487504</strong></h3>
+        </div>
+    </div>-->
+
+    <div class="container" ng-if="!selected">
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2>silver range: <strong class="phone">&pound;25</strong> per week<!-- then <strong class="phone">&pound;12</strong> per day--></h2>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'silver'}" style="cursor:pointer;" ng-click="selecthire(item)">
+                <toptrump data="item" fields="toptrump_fields" name="name" image="image">
+                    <div style="text-align:center">
+                        <h4>{{ item.name }}</h4>
+                        <img ng-src="{{ item.image }}" height="100" />
+                    </div>
+                </toptrump>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h2>gold range: <strong class="phone">&pound;55</strong> per week <!--then <strong class="phone">&pound;16</strong> per day--></h2>
+            </div>
+
+        </div>
+
+        <div class="row"> 
+            <div class="col-lg-3 col-sm-6" ng-repeat="item in shopdata.dehumidifers | filter:{group:'gold'}" style="cursor:pointer;" ng-click="selecthire(item)">
+                <toptrump data="item" fields="toptrump_fields" name="name" image="image">
+                    <div style="text-align:center">
+                        <h4>{{ item.name }}</h4>
+                        <img ng-src="{{ item.image }}" height="100" />
+                    </div>
+                </toptrump>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container" ng-if="selected">
+
+        <div class="row">
+
+            <div class="col-lg-12" style="font-size:1.3em;">
+                <h2>{{ selected.name }} <strong class="phone">&pound;{{ selected.price }}</strong> per week <!-- per week then <strong class="phone">&pound;{{ selected.dayprice }}</strong> per day--></h2>
+                <div style="font-size:1em">
+                    based on a minimum 1 week hire - 1 week is 7 days<!--, extra days are &pound;{{ selected.dayprice }} per day-->
+                </div>
+
+
+
+                <toptrump data="selected" fields="toptrump_fields">
+                    <div style="text-align:center">
+                        <h4>{{ selected.name }}</h4>
+                        <img ng-src="{{ selected.image }}" />
+                    </div>
+                </toptrump>
+
+                <div style="margin-top:10px;">
+                    <a class="btn btn-lg btn-info" href="#/">&laquo; back</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="rainimg">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-5 col-lg-push-0 col-md-5 col-md-push-0 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+
+                    <div class="row">
+                        <div class="callnow col-xs-12">
+                            <h2><strong>Unbeatable Rates!</strong></h2>
+                            <ul style="text-align:left;">
+                                <li><a href="hire.html">Silver Range</a> - <strong>&pound25 per week</strong></li>
+                                <li><a href="hire.html">Gold Range</a> - <strong>&pound55 per week</strong></li>
+                            </ul>
+
+                            <div style="font-size:.8em">
+                                <div>based on a minimum 1 week hire</div>
+                                <div>delivery charges apply</div>
+                                <div>please call us for a free consultation</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="row">
+                        <div class="callnow col-xs-12">
+                            <div class="" style="margin-bottom:5px;margin-top:15px;">
+                                Don't haggle with the big hire firms,
+                            </div>
+                            <div class="">
+                                we are the best value by far!
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+<!--
+                <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h2><strong>All Inclusive</strong></h2>
+                    <ul style="text-align:left;">
+                        <li>Free delivery, setup and collection</li>
+                        <li>No VAT!</li>
+                        <li>Flexible delivery schedule</li>
+                    </ul>
+                    <div style="font-size:.8em">
+                        No hidden extras, prompt friendly service
+                    </div>
+                </div>-->
+
+
+                <div class="callnow col-lg-5 col-lg-push-2 col-md-5 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                <h2><strong>Quality Service</strong></h2>
+                    <ul style="text-align:left;">
+                        <li>Discounts available for long term hire</li>
+                        <li>Same day / next day service</li>
+                        <li>Domestic and commercial dehumidifiers</li>
+                        <li>Best rates in town</li>
+                    </ul>
+                    
+                </div>
+            </div>
+            <div class="row">
+                
+                <div class="callnow col-lg-5 col-lg-push-0 col-md-5 col-md-push-0 col-sm-10 col-sm-push-1 col-xs-10 col-xs-push-1">
+                    <h2><strong>Call Us!</strong></h2>
+                    <div class="bigcallnum visible-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-lg btn-primary" style="font-size:1.2em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="bigcallnum hidden-lg"><strong class="phone"><a href="tel:+441179095727" class="btn btn-primary" style="font-size:1em;color:#000;">0117 9095727</a></strong></div>
+
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447903801031" class="blacklink">07903 801031</a></strong></div>
+                    <div class="smallcallnum"><strong class="phone"><a href="tel:+447966487504" class="blacklink">07966 487504</a></strong></div>
+                    <div style="font-size:.8em">
+                        click the numbers above to call directly
+                    </div>
+                </div>
+
+            
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="section-heading">Dehumidifier hire specialists</h1>
+                <p class="lead section-lead">We are a specialist dehumidifier hire company, providing a first class service with the latest high performance machines. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6" style="font-size:1.15em;">
+                <div><i class="fa fa-check"></i> Same day / Next Day Delivery.</div>
+                <div><i class="fa fa-check"></i> Competitive Rates.</div>
+                <div><i class="fa fa-check"></i> Reliable Friendly Service.</div>
+                <div><i class="fa fa-check"></i> All Major Credit Cards Accepted.</div>
+                <div><i class="fa fa-check"></i> Discounts available for long term hires.</div>
+            </div>
+            <div class="col-lg-6">
+            <!--
+                <div style="margin:10px;">
+                    <a href="#browse" class="btn btn-lg btn-primary">Browse Dehumidifiers</a>
+                </div>
+            -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+
+            <!--
+                <p class="section-paragraph">Our prices exclude delivery charge.  Bristol area @ £25 each way.  Please call for a competitive rate.</p>-->
+
+                <!--<p class="section-paragraph"><a href="#browse">Browse</a> our current range and then get in touch for an immediate hire.</p>-->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h2>How can damp affect you?</h2>
+
+                <p><a href="http://news.bbc.co.uk/1/hi/health/6396455.stm" target="_blank">Damp homes 'could cause asthma'</a> - BBC news</p>
+
+                <a href="http://news.bbc.co.uk/1/hi/health/6396455.stm" target="_blank"><img src="img/bbc_logo.gif" style="float:left" border=0 /></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+window._data = {
+    shopdata:{
+        "dehumidifers":[{
+            "name":"CD35P",
+            "image":"./img/products/cd35.jpg",
+            "company":"Ebac Industrial Products",
+            "capacity":"35 litres per day",
+            "description":"commercial cellar dryer",
+            "group":"silver",
+            "price":25,
+            "dayprice":12
+        },{
+            "name":"BD70",
+            "image":"./img/products/bd70.jpg",
+            "company":"Ebac Industrial Products",
+            "capacity":"25 litres per day",
+            "description":"extraction commercial portable dehumidifier",
+            "group":"silver",
+            "price":25,
+            "dayprice":12
+        },{
+            "name":"SDH50",
+            "image":"./img/products/sdh50.jpg",
+            "company":"Sealey",
+            "capacity":"50 litres per day",
+            "description":"Compressor dehumidifier",
+            "group":"silver",
+            "price":25,
+            "dayprice":12
+        },{
+            "name":"EH1384 50",
+            "image":"./img/products/eh1384.jpg",
+            "company":"Prem-I-Air",
+            "capacity":"50 litres per day",
+            "description":"Commercial dehumidifer with five litre tank",
+            "group":"silver",
+            "price":25,
+            "dayprice":12
+        },{
+            "name":"CR70",
+            "company":"Broughton",
+            "image":"./img/products/cr70.jpg",
+            "capacity":"70 litres per day",
+            "description":"commercial portable defumidifer",
+            "group":"gold",
+            "price":55,
+            "dayprice":16
+        },{
+            "name":"Kompact",
+            "image":"./img/products/kompact.jpg",
+            "company":"Ebac Industrial Products",
+            "capacity":"55 litres per day",
+            "description":"commercial defumidifer",
+            "group":"gold",
+            "price":55,
+            "dayprice":16
+        },{
+            "name":"RM85",
+            "image":"./img/products/rm85.jpg",
+            "company":"Ebac Industrial Products",
+            "capacity":"",
+            "description":"230v Flood Drying Dehumidifer",
+            "group":"gold",
+            "price":55,
+            "dayprice":16
+        }]
+    }
+}
+</script>
+
+
+    <!-- FOOTER -->
+    <div class="container">
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; DryHire UK <script>document.write(new Date().getFullYear())</script>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    </div>
+    <!-- /container -->
+
+    <!-- JavaScript -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="app/dryhire/build/build.js"></script>
+    <script>
+        require('dryhire');
+    </script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48953762-1', 'dryhireuk.com');
+  ga('send', 'pageview');
+
+</script>
+</body>
+
+</html>
