@@ -28,6 +28,7 @@ body {
 	padding: 30px 0 30px 0;
 	border-top:1px solid #999;
 	border-bottom:1px solid #999;
+	height:100px;
 	/*
 	text-align: center;
 	padding: 100px 0;	
@@ -99,6 +100,13 @@ footer {
 	text-align:right;
 }
 
+.phonenumbers2 {
+	font-size:1.3em;
+	margin-top:15%;
+	margin-bottom:2%;
+	margin-left:3%;
+}
+
 .mainphone{
 	font-weight:bold;
 }
@@ -110,16 +118,34 @@ footer {
 @media(max-width:767px){
 	.phonenumbers {
 	}
+	.phonenumberstext{
+		font-size:1.3em;
+	}
+	body {
+		margin-top: 100px; /* 50px is the height of the navbar - change this if the navbarn height changes */
+	}
+	.navbar{
+		min-height: 100px !important;
+	}
 }
 @media(min-width:768px){
 	.phonenumbers {
+	}
+	.phonenumberstext{
+		font-size:1.3em;
 	}
 }
 @media(min-width:992px){
 	.phonenumbers {
 	}
+	.phonenumberstext{
+		font-size:1.3em;
+	}
 }
 @media(min-width:1200px){
 	.phonenumbers {
+	}
+	.phonenumberstext{
+		font-size:1.3em;
 	}
 }
