@@ -22,13 +22,13 @@ body {
 .navbar{
 	min-height: 80px !important;
 }
-.hirestuff{
-	background: url(../img/sunflowers.jpg) no-repeat center center;
+.bannerimage{
+	background: url(../img/waterdrops.jpg) no-repeat center center;
 	background-size: cover;
 	padding: 30px 0 30px 0;
 	border-top:1px solid #999;
 	border-bottom:1px solid #999;
-	height:100px;
+	height:180px;
 	/*
 	text-align: center;
 	padding: 100px 0;	
