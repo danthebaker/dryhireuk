@@ -2,6 +2,10 @@ body {
 	margin-top: 80px; /* 50px is the height of the navbar - change this if the navbarn height changes */
 }
 
+.logoblue{
+	color:#000092;
+}
+
 .rainimg {
 	background: url(../img/rain.jpg) no-repeat center center;
 	background-size: cover;
@@ -82,8 +86,6 @@ footer {
 	margin: 50px 0;
 }
 
-@media (max-width: 768px) {
-
 .section-heading {
 	font-size: 2em;
 }
@@ -91,4 +93,33 @@ footer {
 .section {
 	padding-top: 25px;
 	padding-bottom: 25px;
+}
+
+.phonenumbers {
+	text-align:right;
+}
+
+.mainphone{
+	font-weight:bold;
+}
+
+.subphone{
+	color:#666666;
+}
+
+@media(max-width:767px){
+	.phonenumbers {
+	}
+}
+@media(min-width:768px){
+	.phonenumbers {
+	}
+}
+@media(min-width:992px){
+	.phonenumbers {
+	}
+}
+@media(min-width:1200px){
+	.phonenumbers {
+	}
 }
