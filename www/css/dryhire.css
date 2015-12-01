@@ -122,7 +122,7 @@ footer {
 	border-radius: 62px 62px 62px 62px;
 	-moz-border-radius: 62px 62px 62px 62px;
 	-webkit-border-radius: 62px 62px 62px 62px;
-	border: 3px dotted #000000;
+	border: 2px solid #999;
 	-webkit-box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
 	-moz-box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
 	box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
