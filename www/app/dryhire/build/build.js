@@ -291,6 +291,10 @@ angular
       $location.path('');
     }
 
+    $scope.hidecontrol = function(){
+      $scope.selected = null;
+    }
+
     var userSections = {
       landlords:true,
       commercial:true,
