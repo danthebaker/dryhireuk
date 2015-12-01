@@ -133,7 +133,7 @@ footer {
 }
 
 .iconbutton {
-	color:;
+	color:#0e0092;
 }
 
 
@@ -151,6 +151,10 @@ footer {
 	}
 	.navbar{
 		min-height: 100px !important;
+	}
+	.iconbutton{
+		font-size:1em;
+		margin-bottom:30px;
 	}
 }
 @media(min-width:768px){

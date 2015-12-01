@@ -262,7 +262,7 @@ angular
     return $data ? ($data.shopdata || {}) : {}
   })
 
-  .controller('HireCtrl', function($scope, $shopdata, $location, $rootScope){
+  .controller('HireCtrl', function($scope, $shopdata, $location, $rootScope, $anchorScroll){
     $scope.shopdata = $shopdata;
     $scope.toptrump_fields = [{
       title:'Brand',
@@ -291,12 +291,25 @@ angular
       $location.path('');
     }
 
+    var userSections = {
+      landlords:true,
+      commercial:true,
+      domestic:true,
+      trade:true
+    }
+
     $rootScope.$on('$locationChangeSuccess', function(event){
+      var id = $location.path().replace(/^\//, '');
+
       if($location.path()=='/'){
         $scope.selected = null;
       }
+      else if(userSections[id]){
+        $location.path('/');
+        $location.hash(id)
+        $anchorScroll();
+      }
       else{
-        var id = $location.path().replace(/^\//, '');
         var matching = $scope.shopdata.dehumidifers.filter(function(item){
           return itemid(item)==id;
         })
