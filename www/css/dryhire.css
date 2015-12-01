@@ -72,11 +72,11 @@ body {
 
 .section-heading {
 	font-size: 4em;
-	margin: 30px 0;
+	margin: 20px 0;
 }
 
 .section-lead {
-	margin: 30px 0;
+	margin: 20px 0;
 }
 
 .section-paragraph {
@@ -114,7 +114,32 @@ footer {
 .subphone{
 	color:#666666;
 }
+.iconbutton{
+	text-align:center;
+	font-size:1.4em;
+	font-weight:bold;
+	padding:30px;
+	border-radius: 62px 62px 62px 62px;
+	-moz-border-radius: 62px 62px 62px 62px;
+	-webkit-border-radius: 62px 62px 62px 62px;
+	border: 3px dotted #000000;
+	-webkit-box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
+	-moz-box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
+	box-shadow: 11px 10px 48px -6px rgba(77,75,77,1);
+}
 
+.iconbutton:hover {
+	color:#000;
+}
+
+.iconbutton {
+	color:;
+}
+
+
+.lightgrey{
+	background-color: #efefef;
+}
 @media(max-width:767px){
 	.phonenumbers {
 	}
