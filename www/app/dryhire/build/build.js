@@ -299,7 +299,8 @@ angular
       landlords:true,
       commercial:true,
       domestic:true,
-      trade:true
+      trade:true,
+      equipment:true
     }
 
     $rootScope.$on('$locationChangeSuccess', function(event){
